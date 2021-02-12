@@ -1,25 +1,42 @@
 # subthreshold_hetero_mcu_ncs
- heterogenous neural network with subthreshold mcu and Intel NCS devices
+ heterogenous neural network with subthreshold mcu and Intel NCS2 devices
 
 These folders contain support files for paper "Energy-efficient neural networks with near-threshold processors and hardware accelerators".
+The idea is to derive a simpler network from a full model and then combine simple and full in a hetergenous deployment using different devices with an overall 
+energy efficiency. In this work the simple model targets a subthreshold Cortex M class CPU while the full model uses a neural network accelerator NCS2 developed by Intel.
 
-These instructions assume that you are familiar and have used Tensorflowlite for microcontrollers and the Intel OpenVINO toolset previously.
+These instructions assume that you are familiar and have used Tensorflowlite for microcontrollers and the Intel OpenVINO toolset for the NCS2 device
+previously.
+
+To create the MCU benchmarks new tensorflowlite examples should be created in directory /tensorflow/tensorflow/lite/micro/examples
+using the files below for mcu_deployment.
 
 contents:
 
-hetero_neural -> inference -> mcu_deployment -> ambiq 
-folder contains makefile, scriptfiles and c code for tensorflowlite 1.14 for miconcontrollers. 
+hetero_neural -> inference -> motion_classification -> mcu_deployment -> ambiq 
+folder contains makefile, scriptfiles and c code for tensorflowlite 1.14 for miconcontrollers motion_classification.
 The TFlite 1.14 should be installed an the script file will compile and generate a binary ready 
 for deployment in a sparkfun Ambiq development board.
 
-hetero_neural -> inference -> mcu_deployment -> etacompute
-folder contains makefile, scriptfiles and c code for tensorflowlite 1.14 for miconcontrollers. 
+hetero_neural -> inference  -> motion_classification -> mcu_deployment -> etacompute
+folder contains makefile, scriptfiles and c code for tensorflowlite 1.14 for miconcontrollers for motion_classification.
 The TFlite 1.14 should be installed an the script file will compile and generate a binary ready 
 for deployment in a Etacompute ECM3531 development board. 
 
+
+hetero_neural -> inference  -> mnist -> mcu_deployment -> etacompute
+folder contains makefile, scriptfiles and c code for tensorflowlite 1.14 for miconcontrollers for mnist example.
+The TFlite 1.14 should be installed an the script file will compile and generate a binary ready 
+for deployment in a Etacompute ECM3531 development board. 
+
+hetero_neural -> inference  -> mnist -> mcu_deployment -> ambiq
+folder contains makefile, scriptfiles and c code for tensorflowlite 1.14 for miconcontrollers for mnist example.
+The TFlite 1.14 should be installed an the script file will compile and generate a binary ready 
+for deployment in a sparkfun Ambiq  development board. 
+
 hetero_neural -> inference -> ncs2_deployment
 folder contains makefile, scriptfiles and c code to obtain a binary that will use an Intel NCS2 (Neural Compute Stick)
-to accelerate the neural network. It is targetting openvino_2020.1.023 that should be installed and ready to use before trying to generate 
+to accelerate the motion classification neural network. It is targetting openvino_2020.1.023 that should be installed and ready to use before trying to generate 
 compile.  
 
 

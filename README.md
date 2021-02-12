@@ -31,4 +31,14 @@ is converted to a tflite file with tflite_convert and the tflite to C file with 
 The file mnist_ncs.sh shows and example how the frozen graph pb file can be converted to OpenVino code using the OpenVino model optimizer: 
 model_optimizer/mo_tf.py 
 
-hetero_neural -> training -> motion_classification
+hetero_neural -> training -> motion_classification -> data
+
+Training and testing data use during model generation
+
+hetero_neural -> training -> motion_classification -> full_model_ncs
+
+script and python files to train the full model for motion classification and obtain implementation for Intel NCS2 device
+
+hetero_neural -> training -> motion_classification -> two_classes_mcu
+
+script and python files to train the simplified 2 classes model for motion classification and obtain tflite files and C files for mcu implementation. 
